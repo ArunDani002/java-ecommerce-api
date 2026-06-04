@@ -30,9 +30,9 @@ public class UserControllers {
     }
 
     //Getting single user
-    @GetMapping("/{id}")
-    public UserModel getUserById(@PathVariable Long id){
-        return userService.getUserById(id);
+    @GetMapping("/{uuid}")
+    public UserModel getUserById(@PathVariable String uuid) {
+        return userService.getUserByUuid(uuid);
     }
 
     // updating particular user

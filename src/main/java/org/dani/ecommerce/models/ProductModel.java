@@ -3,6 +3,8 @@ package org.dani.ecommerce.models;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Data
 @Table(name = "products")
@@ -20,6 +22,15 @@ public class ProductModel {
     private Double productPrice;
     @Column(nullable = false)
     private String productCategory;
+    @Column(nullable = false)
+    private String productImageUrl;
+    @Column(nullable = false)
+    private String sellerUuid;
+    @Column(nullable = false)
+    private String stocks;
+    private LocalDateTime createdAt;
+
+
 
 
 }

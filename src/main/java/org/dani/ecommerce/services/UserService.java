@@ -30,12 +30,17 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public UserModel getUserById(Long id) {
-        return userRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("User not found with id " + id));
+//    public UserModel getUserById(Long id) {
+//        return userRepository.findById(id)
+//                .orElseThrow(() -> new RuntimeException("User not found with id " + id));
+//    }
+
+    public UserModel getUserByUuid(String uuid) {
+        return userRepository.findByUuid(uuid)
+                .orElseThrow(() -> new RuntimeException("User not found"));
     }
 
-    public UserModel updateUser(Long id, @RequestBody UserModel userModel) {
+    public UserModel updateUser(Long id, UserModel userModel) {
         UserModel existingUser = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found with id" + id));
         existingUser.setFirstName(userModel.getFirstName());
